@@ -1,0 +1,20 @@
+%div.alert_margined
+  - if flash
+    .row
+      .seven.columns.centered
+        - flash.each do |k,v| 
+          - if k == :notice 
+            .alert-box
+              = v
+              %a{:href => "", :class => "close"}
+                \&times;
+          - if k == :success 
+            .alert-box.success
+              = v
+              %a{:href => "", :class => "close"}
+                \&times;
+          - if k == :alert
+            .alert-box.alert
+              = v
+              %a{:href => "", :class => "close"}
+                \&times;

@@ -1,0 +1,6 @@
+.row
+  .five.columns.centered
+    = session if Rails.env.development? 
+.row
+  .five.columns.centered
+    = debug(params) if Rails.env.development? 

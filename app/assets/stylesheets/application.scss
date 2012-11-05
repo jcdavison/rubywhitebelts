@@ -11,3 +11,20 @@
  *= require_self
  *= require_tree .
  */
+@import "foundation";
+
+body {
+  background: url(straws_@2X.png)
+}
+
+.center {
+  text-align:center;
+}
+
+.margined {
+  margin: 2em auto;
+}
+
+.alert_margined {
+  margin: .2em auto;
+}

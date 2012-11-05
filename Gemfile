@@ -16,6 +16,8 @@ group :test, :development do
   gem 'capybara', '~>1.1.2'
   gem "fabrication", "~> 2.2.0"
   gem "launchy", "~> 2.1.2"
+  gem "selenium", "~> 0.2.5"
+  gem "capybara-webkit"
 end
 
 group :assets do
@@ -24,5 +26,4 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
   gem 'zurb-foundation'
-
 end

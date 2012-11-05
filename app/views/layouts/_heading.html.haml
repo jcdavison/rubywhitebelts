@@ -1,0 +1,20 @@
+.row
+  .four.columns.centered
+    .fixed.contain-to-grid
+      %nav.top-bar
+        %ul
+          - if logged_in? == false
+            %li.name
+              %h1
+                = link_to "Log In", "/auth/twitter"
+            %li.name
+              %h1
+                = link_to "Sign Up", "/auth/twitter"
+          - if logged_in? == true
+            %li.name
+              %h1
+                = link_to "Belts", belts_path
+            %li.name
+              %h1
+                = link_to "Sign Out", sign_out_path
+            
