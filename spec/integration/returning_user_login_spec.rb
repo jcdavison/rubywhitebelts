@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe User do 
-  context "New User Sign Up" do 
-    it "creates a new user object, sets session corectly " do
+describe User do
+  context "Returning User Sign In" do 
+    it "should be greeted with Welcome Back flash " do
       visit '/'
       page.has_content? "Log In"
       page.has_content? "Login Via Twitter!"
@@ -14,6 +14,10 @@ describe User do
       page.has_content? "Welcome to Ruby White Belts"
       page.has_content? "Belts"
       page.has_content? "Sign Out"
+      click_link "Sign Out"
+      page.has_content? "You Are Now Logged Out"
+      click_link "Sign Up"
+      page.has_content? "Welcome Back"
     end
   end
 end

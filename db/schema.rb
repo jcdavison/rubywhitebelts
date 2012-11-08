@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103054846) do
+ActiveRecord::Schema.define(:version => 20121107212958) do
+
+  create_table "belts", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "challenges", :force => true do |t|
+    t.string   "description"
+    t.boolean  "complete",    :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "belt_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -20,8 +35,11 @@ ActiveRecord::Schema.define(:version => 20121103054846) do
     t.string   "twitter_secret"
     t.string   "twitter_id"
     t.string   "twitter_handle"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.boolean  "master",         :default => false
+    t.boolean  "admin",          :default => false
+    t.boolean  "white_belt",     :default => false
   end
 
 end

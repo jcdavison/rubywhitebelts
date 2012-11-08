@@ -13,6 +13,9 @@ describe User do
     it { @user.valid?.should == true; @user2.valid?.should == false ; @user3.valid?.should == true }
     it { @user.save.should == true ; @user3.save.should == false }
     it { @user.save.should == true ; User.exists?(twitter_id: "1234").should == true }
+    it { @user.admin.should == false }
+    it { @user.master.should == false }
+    it { @user.white_belt.should == false }
 
   end
 

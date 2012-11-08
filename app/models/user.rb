@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :twitter_handle, :twitter_id, :twitter_secret, :twitter_token
+  attr_accessible :email, :name, :twitter_handle, :twitter_id, :twitter_secret, :twitter_token, :admin, :master, :white_belt
   validates_presence_of :twitter_handle, :twitter_id, :twitter_secret, :twitter_token
   validates_uniqueness_of :twitter_id, :twitter_handle, { :alert => "That @twitter is already registered" }
 
@@ -12,3 +12,6 @@ class User < ActiveRecord::Base
   
 
 end
+
+# master == true should be able to create other admins
+# admin == true should be able to edit belts, challenges etc

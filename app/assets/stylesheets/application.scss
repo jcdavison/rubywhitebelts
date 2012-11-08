@@ -12,6 +12,7 @@
  *= require_tree .
  */
 @import "foundation";
+@import "general_foundicons";
 
 body {
   background: url(straws_@2X.png)
@@ -27,4 +28,20 @@ body {
 
 .alert_margined {
   margin: .2em auto;
+}
+
+.right {
+  float: right;
+}
+
+.inline {
+  display: inline;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.padded {
+  padding: 1em;
 }

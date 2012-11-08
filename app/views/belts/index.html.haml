@@ -1,5 +1,25 @@
-.row
-  .eight.columns.centered
-    .panel.margined
-      %p
-        belts
+.nice.secondary.progress
+  %span.meter{:style => "width:100%;"}
+- @belts.each do |belt|
+  %div.center
+    %h2.center{style: "display:inline; vertical-align:middle;"}
+      The #{belt.title} White Belt
+    - if admin?      
+      = link_to "edit", edit_belt_path(belt), class: "button tiny alert round"
+      = link_to "delete", belt_path(belt), :method => :delete, class: "button tiny alert round"
+  %h6.center
+    = belt.description
+    %span.label.round.buttonForModal.pointer{id: "#{belt.title.downcase}"}
+      more info
+    &nbsp;
+    %span.label.round.success.pointer
+      + join #{belt.title.downcase} belt
+    &nbsp;
+  .nice.secondary.progress
+    %span.meter{:style => "width:100%;"}
+- if admin?    
+  %div.center
+    %a.button.small.success.radius{href: new_belt_path}
+      new belt  
+
+= render 'layouts/modal'    

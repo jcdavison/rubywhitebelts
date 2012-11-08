@@ -9,14 +9,14 @@ class SessionsController < ApplicationController
     if @user = User.find_by_twitter_id(auth_hash[:uid])
       session[:current_user_id] = @user.id
       flash[:success] = "Welcome Back @#{@user.twitter_handle} !"
-      redirect_to judo_chop_path
+      redirect_to the_path_path
     else    
       @user = User.new
       @user.set_attributes(auth_hash)
         if @user.save
         session[:current_user_id] = @user.id  
         flash[:success] = "Welcome to Ruby White Belts"
-        redirect_to judo_chop_path
+        redirect_to the_path_path
         else
         redirect_to root_path, :alert => "Something went terribly wrong, please Sign Up again"
         end    
@@ -36,6 +36,10 @@ class SessionsController < ApplicationController
 
   def set_session_id(user)
     session[:current_user_id] = user.id
+  end
+
+  def toggle
+
   end
   
 end

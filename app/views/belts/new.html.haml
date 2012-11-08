@@ -1,0 +1,12 @@
+.nice.secondary.progress
+  %span.meter{:style => "width:100%;"}
+= form_for @belt do |f|
+  %h4.subheader
+    Belt Title
+  =  f.text_field :title
+  %h4.subheader
+    Belt Description
+  =  f.text_field :description
+  = f.submit 
+.nice.secondary.progress
+  %span.meter{:style => "width:100%;"}

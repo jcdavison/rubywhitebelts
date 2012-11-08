@@ -3,18 +3,44 @@
     .fixed.contain-to-grid
       %nav.top-bar
         %ul
-          - if logged_in? == false
+          - if logged_out?
+            %li.divider
             %li.name
               %h1
                 = link_to "Log In", "/auth/twitter"
+            %li.divider
             %li.name
               %h1
                 = link_to "Sign Up", "/auth/twitter"
-          - if logged_in? == true
+            %li.divider
+          - if logged_in? 
+            %li.divider
             %li.name
               %h1
                 = link_to "Belts", belts_path
-            %li.name
-              %h1
-                = link_to "Sign Out", sign_out_path
-            
+            %li.divider
+        - if logged_in?
+          %ul.right
+            %li.divider
+            %li.has-dropdown
+              = link_to "@#{current_user.twitter_handle}", "#" 
+              %ul.dropdown
+                %li
+                  = link_to "Belts", belts_path 
+                %li
+                  = link_to "Edit Profile", "#"
+                %li
+                  = link_to "Sign Out", sign_out_path
+                - if admin?
+                  %li
+                    %label 
+                      Admin Tools
+                  %li
+                    = link_to "Edit Belts", belts_path
+                - if master?
+                  %li
+                    %label 
+                      Master Tools
+                  %li
+                    = link_to "Edit Users", "#edit_users_path"
+            %li.divider

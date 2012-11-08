@@ -11,6 +11,7 @@ gem "omniauth", "~> 1.1.1"
 gem "omniauth-twitter", "~> 0.0.13"
 
 
+
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem 'capybara', '~>1.1.2'
@@ -18,6 +19,7 @@ group :test, :development do
   gem "launchy", "~> 2.1.2"
   gem "selenium", "~> 0.2.5"
   gem "capybara-webkit"
+  gem 'factory_girl_rails'
 end
 
 group :assets do
