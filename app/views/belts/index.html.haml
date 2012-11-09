@@ -17,9 +17,14 @@
     &nbsp;
   .nice.secondary.progress
     %span.meter{:style => "width:100%;"}
-- if admin?    
+%div.center
+  %a.button.medium.buttonForModal.success.radius#about
+    About @rubywhitebelts
+- if admin?
+  %br
   %div.center
     %a.button.small.success.radius{href: new_belt_path}
       new belt  
 
 = render 'layouts/modal'    
+= render 'layouts/about'    
