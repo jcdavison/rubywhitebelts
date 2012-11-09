@@ -1,7 +1,14 @@
 class BeltsController < ApplicationController
 
+  before_filter :user_access?
+  before_filter :admin_access?, :only => [:new, :create, :edit, :update, :destroy]
+
   def index
     @belts = Belt.all
+  end
+
+  def show
+
   end
 
   def new
@@ -20,6 +27,7 @@ class BeltsController < ApplicationController
   end
 
   def edit
+    p "edit controller triggered"
     @belt = Belt.find(params[:id])
     challenge = @belt.challenges.build  
   end
@@ -39,6 +47,5 @@ class BeltsController < ApplicationController
       flash[:alert] = "#{@belt.title} not destroyed"
     end
   end
-
 
 end

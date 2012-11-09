@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
-
-  def index
-
-  end
+  before_filter :user_access?, :only => :destroy
 
   def create
     reset_session
@@ -25,10 +22,10 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to root_path, :alert => "You Are Now Logged Out"
+    redirect_to root_path, :notice => "You Are Now Logged Out"
   end
 
-  # protected
+  protected
 
   def auth_hash
     request.env['omniauth.auth']
@@ -36,10 +33,6 @@ class SessionsController < ApplicationController
 
   def set_session_id(user)
     session[:current_user_id] = user.id
-  end
-
-  def toggle
-
   end
   
 end
