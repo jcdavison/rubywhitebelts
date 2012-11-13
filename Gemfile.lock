@@ -78,6 +78,7 @@ GEM
     ffi (1.1.5)
     fssm (0.2.9)
     git (1.2.5)
+    google-analytics-rails (0.0.3)
     haml (3.1.7)
     hashie (1.2.0)
     hike (1.2.1)
@@ -219,6 +220,7 @@ DEPENDENCIES
   devise (~> 2.1.2)
   fabrication (~> 2.2.0)
   factory_girl_rails
+  google-analytics-rails
   haml (~> 3.1.7)
   jquery-rails
   launchy (~> 2.1.2)

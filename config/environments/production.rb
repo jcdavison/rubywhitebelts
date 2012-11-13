@@ -3,7 +3,8 @@ Rubywhitebelts::Application.configure do
 
   # Code is not reloaded between requests
   config.cache_classes = true
-
+  GA.tracker = "UA-36297938-1"
+  
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
