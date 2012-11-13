@@ -7,11 +7,11 @@
             %li.divider
             %li.name
               %h1
-                = link_to "Log In", "/auth/twitter"
+                = link_to "Log In", "/auth/twitter?force_login=true"
             %li.divider
             %li.name
               %h1
-                = link_to "Sign Up", "/auth/twitter"
+                = link_to "Sign Up", "/auth/twitter?force_login=true"
             %li.divider
           - if logged_in? 
             %li.divider

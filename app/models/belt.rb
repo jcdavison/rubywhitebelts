@@ -5,7 +5,7 @@ class Belt < ActiveRecord::Base
   validates_uniqueness_of :title
 
   has_many :challenges
-
+  belongs_to :user
   accepts_nested_attributes_for :challenges
 
 end

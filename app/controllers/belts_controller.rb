@@ -1,6 +1,6 @@
 class BeltsController < ApplicationController
 
-  before_filter :user_access?
+  before_filter :user_access?, :except => [:index, :show]
   before_filter :admin_access?, :only => [:new, :create, :edit, :update, :destroy]
 
   def index
