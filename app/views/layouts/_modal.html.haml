@@ -9,5 +9,5 @@
             %h4.subheader 
               = challenge.description.html_safe
       %div.center
-        %a.button.medium.success.radius
-          + join #{belt.title.downcase} belt
+        - if ! current_user.belts.find_by_title("#{belt.title}").present?
+          = link_to "Join #{belt.title} White Belt", belts_path(:join_belt => {:title => "#{belt.title}", :belt_id => "#{belt.id}"}), :method => :post, class: "button medium success radius"

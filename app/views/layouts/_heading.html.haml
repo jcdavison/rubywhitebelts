@@ -17,8 +17,12 @@
             %li.divider
             %li.name
               %h1
-                = link_to "Belts", belts_path
-            %li.divider
+                = link_to "All Belts", belts_path
+            - current_user.belts.all.each do |belt|
+              %li.divider
+              %li.name
+                %h1
+                  = link_to "#{belt.title} Belt", belt_path(belt)
         - if logged_in?
           %ul.right
             %li.divider
@@ -26,7 +30,7 @@
               = link_to "@#{current_user.twitter_handle}", "#" 
               %ul.dropdown
                 %li
-                  = link_to "Belts", belts_path 
+                  = link_to "All Users", users_path 
                 %li
                   = link_to "Edit Profile", "#"
                 %li

@@ -5,5 +5,6 @@ class Challenge < ActiveRecord::Base
   validates_uniqueness_of :description
   validates_presence_of :description
 
+  
 
 end

@@ -4,17 +4,15 @@
   %div.center
     %h2.center{style: "display:inline; vertical-align:middle;"}
       The #{belt.title} White Belt
+    - if ! current_user.belts.find_by_title("#{belt.title}").present?
+      = link_to "Join #{belt.title} White Belt", belts_path(:join_belt => {:title => "#{belt.title}", :belt_id => "#{belt.id}"}), :method => :post, class: "button small success radius"
+  %h6.center
+    '#{belt.description}'
+    %span.label.round.buttonForModal.pointer{id: "#{belt.title.downcase}"}
+      more info
     - if admin?      
       = link_to "edit", edit_belt_path(belt), class: "button tiny alert round"
       = link_to "delete", belt_path(belt), :method => :delete, class: "button tiny alert round"
-  %h6.center
-    = belt.description
-    %span.label.round.buttonForModal.pointer{id: "#{belt.title.downcase}"}
-      more info
-    &nbsp;
-    %span.label.round.success.pointer
-      + join #{belt.title.downcase} belt
-    &nbsp;
   .nice.secondary.progress
     %span.meter{:style => "width:100%;"}
 %div.center

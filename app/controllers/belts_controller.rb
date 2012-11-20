@@ -5,10 +5,16 @@ class BeltsController < ApplicationController
 
   def index
     @belts = Belt.all
+
+
   end
 
   def show
-
+    @belt = Belt.find(params[:id])
+    @challenges = Belt.find(params[:id]).challenges
+    @completions = @challenges.collect do |challenge|
+      current_user.completions.find_by_description(challenge.description).present?  
+    end    
   end
 
   def new
@@ -16,13 +22,20 @@ class BeltsController < ApplicationController
   end
 
   def create
-    @belt = Belt.new(params[:belt])
-    if @belt.save
-      flash[:success] = "#{@belt.title} added"
-      redirect_to edit_belt_path(@belt)
-    else
-      flash[:alert] = "something went wrong"
-      redirect_to :back
+    if params[:join_belt]
+      @belt = Belt.find(params[:join_belt][:belt_id])
+      User.find(current_user.id).belts << @belt
+      flash[:success] = "You've joined the #{params[:join_belt][:title]} belt!"
+      redirect_to belt_path(@belt)
+      else
+        @belt = Belt.new(params[:belt])
+        if @belt.save
+          flash[:success] = "#{@belt.title} added"
+          redirect_to edit_belt_path(@belt)
+        else
+          flash[:alert] = "something went wrong"
+          redirect_to :back
+        end
     end
   end
 
@@ -32,9 +45,13 @@ class BeltsController < ApplicationController
     challenge = @belt.challenges.build  
   end
 
-  def update    
+  def update
+    p "update controller triggered"
+    p params
+    p params[:id]    
     @belt = Belt.find(params[:id])
-    @belt.update_attributes(params[:belt])
+    p "update_attributes"
+    p @belt.update_attributes(params[:belt])
     redirect_to edit_belt_path(@belt)
   end
 
