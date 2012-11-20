@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119010511) do
+ActiveRecord::Schema.define(:version => 20121120164327) do
+
+  create_table "auth_hashes", :force => true do |t|
+    t.string   "auth_hash"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "belts", :force => true do |t|
     t.string   "title"
@@ -47,11 +54,16 @@ ActiveRecord::Schema.define(:version => 20121119010511) do
     t.string   "twitter_secret"
     t.string   "twitter_id"
     t.string   "twitter_handle"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.boolean  "master",         :default => false
-    t.boolean  "admin",          :default => false
-    t.boolean  "white_belt",     :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "master",          :default => false
+    t.boolean  "admin",           :default => false
+    t.boolean  "white_belt",      :default => false
+    t.string   "linkedin_secret"
+    t.string   "linkedin_token"
+    t.string   "linkedin_id"
+    t.string   "linkedin_handle"
+    t.string   "linkedin_email"
   end
 
 end

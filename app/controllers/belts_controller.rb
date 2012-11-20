@@ -5,8 +5,6 @@ class BeltsController < ApplicationController
 
   def index
     @belts = Belt.all
-
-
   end
 
   def show

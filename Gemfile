@@ -9,6 +9,7 @@ gem "haml", "~> 3.1.7"
 gem "thin", "~> 1.5.0"
 gem "omniauth", "~> 1.1.1"
 gem "omniauth-twitter", "~> 0.0.13"
+gem 'omniauth-linkedin'
 gem 'google-analytics-rails'
 
 
