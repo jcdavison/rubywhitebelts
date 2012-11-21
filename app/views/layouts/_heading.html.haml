@@ -25,6 +25,16 @@
                   = link_to "#{belt.title} Belt", belt_path(belt)
         - if logged_in?
           %ul.right
+            - if ! current_user.white_belt
+              %li.divider
+                %li
+                  .has-tip.tip-bottom{:title => "Turn this boolean to true and the Journey begins...", }
+                    = link_to "Belt Status = #{current_user.white_belt.to_s.capitalize}"
+            - if  current_user.white_belt
+              %li.divider
+                %li
+                  .has-tip.tip-bottom{:title => "Your Journey is Underway...", }
+                    = link_to "Belt Status = #{current_user.white_belt.to_s.capitalize}"
             %li.divider
             %li.has-dropdown
               = link_to current_user.linkedin_email, edit_user_path(current_user.id) 
@@ -47,4 +57,3 @@
                       Master Tools
                   %li
                     = link_to "Edit Users", "#edit_users_path"
-            %li.divider
