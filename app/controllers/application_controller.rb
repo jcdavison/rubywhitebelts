@@ -32,7 +32,9 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_access?
-    if admin? != true
+    if admin? != true && params.has_key?(:join_belt)
+      #just lets the user continue
+    elsif admin? != true
       flash[:alert] = "you don't have access to that"
       redirect_to root_path
     end

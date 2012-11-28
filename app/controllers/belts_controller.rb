@@ -4,7 +4,9 @@ class BeltsController < ApplicationController
   before_filter :admin_access?, :only => [:new, :create, :edit, :update, :destroy]
 
   def index
+    p "index is getting triggered"
     @belts = Belt.all
+    p "index is getting finished"
   end
 
   def show

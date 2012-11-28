@@ -29,12 +29,12 @@
               %li.divider
                 %li
                   .has-tip.tip-bottom{:title => "Turn this boolean to true and the Journey begins...", }
-                    = link_to "Belt Status = #{current_user.white_belt.to_s.capitalize}"
+                    = link_to "Belt Status = #{current_user.white_belt.to_s.capitalize}", "javascript: void(0)"
             - if  current_user.white_belt
               %li.divider
                 %li
                   .has-tip.tip-bottom{:title => "Your Journey is Underway...", }
-                    = link_to "Belt Status = #{current_user.white_belt.to_s.capitalize}"
+                    = link_to "Belt Status = #{current_user.white_belt.to_s.capitalize}", "javascript: void(0)"
             %li.divider
             %li.has-dropdown
               = link_to current_user.linkedin_email, edit_user_path(current_user.id) 
