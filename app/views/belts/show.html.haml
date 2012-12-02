@@ -15,7 +15,9 @@
               %span.radius.success.label
                 Complete!
             - if ! current_user.completions.find_by_description(challenge.description)
-              %span.alert.radius.label.round.has-tip.tip-top{:title => "Do or do not, there is no try..", }
+              %span.alert.radius.label.round.has-tip.tip-top{:title => "Attend an event to learn how to do these fundamental things!", }
                 Incomplete
   .nice.secondary.progress
     %span.meter{:style => "width:100%;"}
+  .center
+    = link_to "View Current Events", events_path, :class => "button success small center radius"
