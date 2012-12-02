@@ -44,9 +44,9 @@
             - if ! current_user.white_belt
               %li.divider
                 %li
-                  .has-tip.tip-bottom{:title => "Turn this boolean to true and the Journey begins..." }
+                  .has-tip.tip-bottom{:title => "Attend an intro to RubyWhiteBelts Event to turn this boolean to true, and the journey will begin..." }
                     = link_to "Belt Status = #{current_user.white_belt.to_s.capitalize}", "javascript: void(0)"
-            - if  current_user.white_belt
+            - if current_user.white_belt
               %li.divider
                 %li
                   .has-tip.tip-bottom{:title => "Your Journey is Underway...", }
