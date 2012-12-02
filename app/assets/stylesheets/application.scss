@@ -39,9 +39,17 @@ body {
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .padded {
   padding: 1em;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.middle {
+  vertical-align:middle;
 }

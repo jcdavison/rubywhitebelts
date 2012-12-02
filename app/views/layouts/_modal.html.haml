@@ -11,6 +11,6 @@
       %div.center
         - if logged_in? && ! current_user.belts.find_by_title("#{belt.title}").present?
           = link_to "Join #{belt.title} White Belt", belts_path(:join_belt => {:title => "#{belt.title}", :belt_id => "#{belt.id}"}), :method => :post, class: "button medium success radius"
-        - if ! logged_in? 
+        - if logged_out? 
           %h5
             = link_to "Please Log in via LinkedIn to Join the #{belt.title} belt ", "/auth/linkedin"

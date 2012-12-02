@@ -1,5 +1,5 @@
 .row
-  .four.columns.centered
+  .one.column.centered
     .fixed.contain-to-grid
       %nav.top-bar
         %ul
@@ -7,7 +7,11 @@
             %li.divider
             %li.name
               %h1
-                = link_to "Log In", "/auth/linkedin"
+                = link_to "Belts", belts_path
+            %li.divider
+            %li.name
+              %h1
+                = link_to "Events", events_path
             %li.divider
             %li.name
               %h1
@@ -18,17 +22,29 @@
             %li.name
               %h1
                 = link_to "All Belts", belts_path
+            %li.divider
+            %li.name
+              %h1
+                = link_to "Events", events_path
+            
             - current_user.belts.all.each do |belt|
               %li.divider
               %li.name
                 %h1
                   = link_to "#{belt.title} Belt", belt_path(belt)
+        - if logged_out?
+          %ul.right
+            %li.divider
+            %li.name
+              %h1
+                = link_to "Log In", "/auth/linkedin"
+            %li.divider
         - if logged_in?
           %ul.right
             - if ! current_user.white_belt
               %li.divider
                 %li
-                  .has-tip.tip-bottom{:title => "Turn this boolean to true and the Journey begins...", }
+                  .has-tip.tip-bottom{:title => "Turn this boolean to true and the Journey begins..." }
                     = link_to "Belt Status = #{current_user.white_belt.to_s.capitalize}", "javascript: void(0)"
             - if  current_user.white_belt
               %li.divider

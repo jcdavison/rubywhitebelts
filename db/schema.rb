@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122164108) do
+ActiveRecord::Schema.define(:version => 20121202014822) do
 
   create_table "auth_hashes", :force => true do |t|
     t.string   "auth_hash"
@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(:version => 20121122164108) do
     t.datetime "date"
     t.string   "location"
     t.integer  "capacity"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
+  end
+
+  create_table "rsvps", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :belts
   has_many :completions
+  has_many :rsvps
 
   def set_attributes(oauth_hash)
     self.linkedin_id = oauth_hash[:uid]
