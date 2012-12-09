@@ -1,7 +1,7 @@
 = form_for @user do |f|
   %fieldset
     %h3
-      = @user.linkedin_email
-    = f.text_field :name, :placeholder => @user.name
+      = @user.email
+    = f.text_field :first_name, :placeholder => @user.first_name
     = f.submit
 content here  

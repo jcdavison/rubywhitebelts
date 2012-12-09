@@ -11,8 +11,9 @@
       = link_to "Events", events_path, :class => "tiny button success radius"
   %h5.center
     '#{belt.description}'
-    %span.button.small.radius.buttonForModal.pointer{id: "#{belt.title.downcase}"}
-      more info
+    - if logged_in? && ! current_user.belts.find_by_title("#{belt.title}").present?
+      %span.button.small.radius.buttonForModal.pointer{id: "#{belt.title.downcase}"}
+        more info
     - if admin?      
       = link_to "edit", edit_belt_path(belt), class: "button tiny alert round"
       = link_to "delete", belt_path(belt), :method => :delete, class: "button tiny alert round"

@@ -2,10 +2,11 @@ class SessionsController < ApplicationController
   before_filter :user_access?, :only => :destroy
 
   def create
+    p auth_hash
     reset_session
-    if @user = User.find_by_linkedin_id(auth_hash[:uid])
+    if @user = User.find_by_uid(auth_hash[:uid])
       session[:current_user_id] = @user.id
-      flash[:success] = "Welcome Back #{@user.linkedin_email} !"
+      flash[:success] = "Welcome Back #{@user.email} !"
       redirect_to belts_path
     else    
       @user = User.new

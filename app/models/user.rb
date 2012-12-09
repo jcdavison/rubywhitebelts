@@ -8,11 +8,17 @@ class User < ActiveRecord::Base
   has_many :rsvps
 
   def set_attributes(oauth_hash)
-    self.linkedin_id = oauth_hash[:uid]
+    self.uid = oauth_hash[:uid]
     #self.linkedin_handle = "#{oauth_hash[:info][:firstName]} #{oauth_hash[:info][:lastName]} "
-    self.linkedin_email = oauth_hash[:info][:email]
-    self.linkedin_token = oauth_hash[:credentials][:token]
-    self.linkedin_secret = oauth_hash[:credentials][:secret]
+    self.email = oauth_hash[:info][:email]
+    self.token = oauth_hash[:credentials][:token]
+    self.secret = oauth_hash[:credentials][:secret]
+    self.first_name = oauth_hash[:info][:first_name]
+    self.last_name = oauth_hash[:info][:last_name]
+  end
+
+  def fullname
+    "#{self.first_name} #{self.last_name}"
   end
 
   # def challenge_status?
