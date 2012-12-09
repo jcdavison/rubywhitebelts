@@ -9,7 +9,7 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-Capybara.default_driver = :webkit
+Capybara.default_driver = :selenium
 Capybara.javascript_driver = :webkit
 
 

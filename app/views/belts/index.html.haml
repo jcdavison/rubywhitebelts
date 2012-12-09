@@ -9,9 +9,9 @@
     - if logged_in? && current_user.belts.find_by_title("#{belt.title}").present?
       = link_to "Belt Progress", belt_path(belt), :class => "tiny button success radius"
       = link_to "Events", events_path, :class => "tiny button success radius"
-  %h6.center
+  %h5.center
     '#{belt.description}'
-    %span.label.round.buttonForModal.pointer{id: "#{belt.title.downcase}"}
+    %span.button.small.radius.buttonForModal.pointer{id: "#{belt.title.downcase}"}
       more info
     - if admin?      
       = link_to "edit", edit_belt_path(belt), class: "button tiny alert round"
