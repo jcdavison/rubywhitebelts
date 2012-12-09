@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121202014822) do
+ActiveRecord::Schema.define(:version => 20121209002803) do
 
   create_table "auth_hashes", :force => true do |t|
     t.string   "auth_hash"
@@ -67,20 +67,15 @@ ActiveRecord::Schema.define(:version => 20121202014822) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "twitter_token"
-    t.string   "twitter_secret"
-    t.string   "twitter_id"
-    t.string   "twitter_handle"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-    t.boolean  "master",          :default => false
-    t.boolean  "admin",           :default => false
-    t.boolean  "white_belt",      :default => false
-    t.string   "linkedin_secret"
-    t.string   "linkedin_token"
-    t.string   "linkedin_id"
-    t.string   "linkedin_handle"
-    t.string   "linkedin_email"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "master",     :default => false
+    t.boolean  "admin",      :default => false
+    t.boolean  "white_belt", :default => false
+    t.string   "secret"
+    t.string   "token"
+    t.string   "uid"
+    t.string   "handle"
   end
 
 end

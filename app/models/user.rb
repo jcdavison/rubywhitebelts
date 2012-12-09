@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :linkedin_handle, :linkedin_id, :linkedin_secret, :linkedin_token, :admin, :master, :white_belt
-  validates_presence_of :linkedin_id, :linkedin_secret, :linkedin_token, :linkedin_email
-  validates_uniqueness_of :linkedin_email, :linkedin_id, { :alert => "That Person is already registered" }
+  attr_accessible :email, :name, :handle, :uid, :secret, :token, :admin, :master, :white_belt
+  validates_presence_of :uid, :secret, :token, :email
+  validates_uniqueness_of :email, :uid, { :alert => "That Person is already registered" }
 
   has_and_belongs_to_many :belts
   has_many :completions
