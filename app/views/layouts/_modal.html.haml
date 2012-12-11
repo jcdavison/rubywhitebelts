@@ -13,4 +13,4 @@
           = link_to "Join #{belt.title} White Belt", belts_path(:join_belt => {:title => "#{belt.title}", :belt_id => "#{belt.id}"}), :method => :post, class: "button medium success radius"
         - if logged_out? 
           %h5
-            = link_to "Please Log in via LinkedIn to Join the #{belt.title} belt ", "/auth/linkedin"
+            = link_to "Please LogIn via LinkedIn to Join the #{belt.title} belt ", "/auth/linkedin"
