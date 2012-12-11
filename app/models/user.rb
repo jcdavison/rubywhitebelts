@@ -17,21 +17,19 @@ class User < ActiveRecord::Base
     self.last_name = oauth_hash[:info][:last_name]
   end
 
+  def update_info(oauth_hash)
+    self.update_attribute(:email, oauth_hash[:info][:email] )
+    self.update_attribute(:token, oauth_hash[:credentials][:token])
+    self.update_attribute(:secret, oauth_hash[:credentials][:secret])
+    self.update_attribute(:uid, oauth_hash[:uid])
+    self.update_attribute(:first_name, oauth_hash[:info][:first_name])
+    self.update_attribute(:last_name, oauth_hash[:info][:last_name])
+  end
+
   def fullname
     "#{self.first_name} #{self.last_name}"
   end
-
-  # def challenge_status?
-  #   current_user.completions.each do |completion|
-  #     if completion.description == self.description
-  #       true
-  #     else
-  #       false
-  #     end
-  #   end
-  # end 
   
-
 end
 
 # master == true should be able to create other admins
