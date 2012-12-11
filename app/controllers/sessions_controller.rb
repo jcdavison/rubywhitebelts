@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
     p auth_hash
     reset_session
-    if @user = User.find_by_uid(auth_hash[:uid])
+    if @user = User.find_by_uid(auth_hash[:uid]) || @user = User.find_by_uid(auth_hash[:email])
       session[:current_user_id] = @user.id
       flash[:success] = "Welcome Back #{@user.email} !"
       redirect_to belts_path
