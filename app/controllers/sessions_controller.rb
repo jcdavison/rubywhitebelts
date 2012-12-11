@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
     p auth_hash
     reset_session
-    if @user = User.find_by_uid(auth_hash[:uid]) || @user = User.find_by_uid(auth_hash[:email])
+    if @user = User.find_by_uid(auth_hash[:uid]) || @user = User.find_by_email(auth_hash[:info][:email])
       @user.update_info(auth_hash)
       session[:current_user_id] = @user.id
       flash[:success] = "Welcome Back #{@user.email} !"
