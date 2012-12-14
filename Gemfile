@@ -22,6 +22,9 @@ group :test, :development do
   gem "selenium", "~> 0.2.5"
   gem "capybara-webkit"
   gem 'factory_girl_rails'
+  gem 'spork-rails'
+  gem 'autotest'
+  gem "autotest-fsevent"
 end
 
 group :assets do

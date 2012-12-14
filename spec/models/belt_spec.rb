@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Belt do 
 
   before :each do
-    @belt = build(:belt)
+    @belt = FactoryGirl.build(:belt)
   end
 
   it { @belt.valid?.should == true ; @belt.save.should == true }
