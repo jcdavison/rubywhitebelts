@@ -1,0 +1,4 @@
+%h1.center
+  #{@belt.title} White Belt Progress: #{belt_progress(@completions)}%
+.nice.progress.success
+  %span.meter{:style => "width:#{belt_progress(@completions)}%;"}

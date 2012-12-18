@@ -1,8 +1,6 @@
 module BeltsHelper
 
-  def status(completions)
-    p "completions"
-    p completions
+  def belt_progress(completions)
     @completed = completions.count(true).to_f
     @total = completions.count.to_f
     ((@completed/@total) * 100).round(0)

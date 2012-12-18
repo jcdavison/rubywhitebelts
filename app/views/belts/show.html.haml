@@ -1,22 +1,11 @@
 %div{style: "width: 90%; margin: 0 auto;"}
   .nice.secondary.progress
     %span.meter{:style => "width:100%;"}
-  %h1.center
-    #{@belt.title} White Belt Progress: #{status(@completions)}%
-  .nice.progress.success
-    %span.meter{:style => "width:#{status(@completions)}%;"}
+  %div#progress
+    = render :partial => "progress", :locals => { :belt => @belt, :completions => @completions} 
   %div{style: "width: 70%; margin: 0 auto;"}  
-    %ol
-      - @belt.challenges.each do |challenge|
-        %li
-          %h4.subheader
-            #{challenge.description}
-            - if current_user.completions.find_by_description(challenge.description)
-              %span.radius.success.label
-                Complete!
-            - if ! current_user.completions.find_by_description(challenge.description)
-              %span.alert.radius.label.round.has-tip.tip-top{:title => "Attend an event to learn how to do these fundamental things!", }
-                Incomplete
+    %ol#challenges
+      = render :partial => "challenge", :collection => @belt.challenges
   .nice.secondary.progress
     %span.meter{:style => "width:100%;"}
   .center

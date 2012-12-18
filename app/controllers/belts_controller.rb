@@ -4,16 +4,14 @@ class BeltsController < ApplicationController
   before_filter :admin_access?, :only => [:new, :create, :edit, :update, :destroy]
 
   def index
-    p "index is getting triggered"
     @belts = Belt.all
-    p "index is getting finished"
   end
 
   def show
     @belt = Belt.find(params[:id])
     @challenges = Belt.find(params[:id]).challenges
-    @completions = @challenges.collect do |challenge|
-      current_user.completions.find_by_description(challenge.description).present?  
+    @completions = @challenges.collect do |item|
+      current_user.completions.find_by_challenge_id(item.id).present?  
     end    
   end
 
@@ -40,18 +38,13 @@ class BeltsController < ApplicationController
   end
 
   def edit
-    p "edit controller triggered"
     @belt = Belt.find(params[:id])
     challenge = @belt.challenges.build  
   end
 
   def update
-    p "update controller triggered"
-    p params
-    p params[:id]    
     @belt = Belt.find(params[:id])
-    p "update_attributes"
-    p @belt.update_attributes(params[:belt])
+    @belt.update_attribute(:title, params[:belt][:title])
     redirect_to edit_belt_path(@belt)
   end
 
