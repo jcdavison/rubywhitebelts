@@ -1,10 +1,13 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    # @events = Event.all
+    @events = Event.find(:all, :conditions => ["date between ? and ?", Time.now, Time.now + 2.weeks])
+
   end
 
   def create
+
   end
 
   def new
@@ -15,9 +18,11 @@ class EventsController < ApplicationController
   end
 
   def update
+
   end
 
   def destroy
+
   end
 
 end

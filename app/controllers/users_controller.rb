@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
+  
+  before_filter :user_access?
+  before_filter :admin_access?, :only => [:new, :create, :edit, :update, :destroy]
 
   def index
     @users = User.all
+    
   end
 
   def edit

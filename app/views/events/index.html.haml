@@ -1,28 +1,9 @@
 .nice.secondary.progress
   %span.meter{:style => "width:100%;"}
 - if @events.empty?
-  %h4.center
-    There are no events scheduled at this time. 
-  %h4.center
-    Please check back in the future.  
-  .nice.secondary.progress
-    %span.meter{:style => "width:100%;"}
-- if ! @events.empty? 
-  -  @events.each do |event|
-    %h3.center
-      = event.title
-      %span.label.round.small.middle.has-tip.tip-bottom{:title => "#{event.description}", :"data-width" => "175" }
-        Info
-    %h3.subheader.center
-      #{event.date.to_formatted_s(:short)} | #{event.location} | seats left: #{event.capacity - Rsvp.find_all_by_event_id(event.id).count}
-      - if logged_in?  
-        - if ! current_user.rsvps.find_by_event_id(event.id) && (event.capacity - Rsvp.find_all_by_event_id(event.id).count) > 0 
-          = link_to "RSVP", rsvps_path(:new_rsvp_event_id => event.id), :method => :post , class: "button tiny success radius rsvp middle"
-        - if  current_user.rsvps.find_by_event_id(event.id)
-          = link_to "Cancel RSVP", rsvp_path(current_user.rsvps.find_by_event_id(event.id)), :method => :delete , class: "button tiny alert radius rsvp middle"
-    - if logged_out? 
-      %h5.center
-        = link_to "Please Log in via LinkedIn to RSVP for Events ", "/auth/linkedin"
-    .nice.secondary.progress
-      %span.meter{:style => "width:100%;"}
+  = render :partial => "noevents"
+- if @events
+  = render :partial => "event", :collection => @events    
+.nice.secondary.progress
+  %span.meter{:style => "width:100%;"}
 
