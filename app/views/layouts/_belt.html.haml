@@ -1,0 +1,5 @@
+%div#progress
+  = render :partial => "progress", :locals => { :belt => @belt, :completions => @completions} 
+%div{style: "width: 70%; margin: 0 auto;"}  
+  %ol#challenges
+    = render :partial => "challenge", :collection => @belt.challenges

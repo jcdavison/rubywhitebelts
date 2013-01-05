@@ -6,29 +6,26 @@ class CompletionsController < ApplicationController
   end
 
   def create
-    
-    Completion.create(user_id: current_user.id, challenge_id: params[:challenge_id])
+    @user = User.find(params[:user_id])    
     @belt = Belt.find(params[:belt_id])
-    @challenge = Challenge.find(params[:challenge_id])
-    @completions = @belt.challenges.collect do |item|
-      current_user.completions.find_by_challenge_id(item.id).present?  
-    end    
-    
-    
-    render :json => {
-      :challenge_id => @challenge.id,
-      :challenge_html => render_to_string(:partial => "belts/challenge", :locals => { :challenge => @challenge, :belt => @belt, :completions => @completions }),
+    @challenge = Challenge.find(params[:challenge_id])    
 
-      :belt_progress => render_to_string(:partial => "belts/progress", :locals=> { :belt => @belt, :completions => @completions})
+    Completion.create(user_id: @user.id, challenge_id: @challenge.id, belt_id: @challenge.id)
+
+    render :json => {
+      :challenge_id => @challenge.id, :challenge_html => render_to_string(
+        :partial => "layouts/challenge", :locals => { 
+          :challenge => @challenge,
+          :belt => @belt, 
+          :user => @user 
+        }
+      ),
     }
-    # render :json => {
-    #   :belt_html => render_to_string(:partial => "belts/challenge", :locals => { :belt => @belt, :completions => @completions }, :formats => :html)
-    # }
+  
   end
 
   def index
     @belt = Belt.find(params[:belt_id])
-    
   end
 
   def edit

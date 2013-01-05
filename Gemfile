@@ -11,7 +11,7 @@ gem "omniauth", "~> 1.1.1"
 gem "omniauth-twitter", "~> 0.0.13"
 gem 'omniauth-linkedin'
 gem 'google-analytics-rails'
-
+gem "linkedin", "~> 0.3.7"
 
 
 group :test, :development do

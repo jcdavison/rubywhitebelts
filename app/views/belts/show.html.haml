@@ -2,10 +2,10 @@
   .nice.secondary.progress
     %span.meter{:style => "width:100%;"}
   %div#progress
-    = render :partial => "progress", :locals => { :belt => @belt, :completions => @completions} 
+    = render :partial => "progress", :locals => { :belt => @belt, :user => current_user} 
   %div{style: "width: 70%; margin: 0 auto;"}  
     %ol#challenges
-      = render :partial => "challenge", :collection => @belt.challenges
+      = render :partial => "layouts/challenge", :collection => @belt.challenges, :locals => { :belt => @belt, :user => current_user}
   .nice.secondary.progress
     %span.meter{:style => "width:100%;"}
   .center

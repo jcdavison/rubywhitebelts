@@ -12,4 +12,5 @@ require 'spec_helper'
 # end
 describe BeltsHelper do
   
+  
 end

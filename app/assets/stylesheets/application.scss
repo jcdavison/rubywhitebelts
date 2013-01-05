@@ -18,8 +18,16 @@ body {
   background: url(straws_@2X.png)
 }
 
+relative {
+  position: relative;
+}
+
+.center_element {
+  margin: 0 auto;
+}
+
 .center {
-  text-align:center;
+  text-align: center;
 }
 
 .margined {
@@ -32,6 +40,10 @@ body {
 
 .right {
   float: right;
+}
+
+.left {
+  float: left;
 }
 
 .inline {

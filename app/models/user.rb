@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
     self.secret = oauth_hash[:credentials][:secret]
     self.first_name = oauth_hash[:info][:first_name]
     self.last_name = oauth_hash[:info][:last_name]
+    self.pic = oauth_hash[:info][:image]
   end
 
   def update_info(oauth_hash)
@@ -24,12 +25,16 @@ class User < ActiveRecord::Base
     self.update_attribute(:uid, oauth_hash[:uid])
     self.update_attribute(:first_name, oauth_hash[:info][:first_name])
     self.update_attribute(:last_name, oauth_hash[:info][:last_name])
+    self.update_attribute(:pic , oauth_hash[:info][:image])
   end
 
   def fullname
     "#{self.first_name} #{self.last_name}"
   end
   
+  def show_pic
+    self.pic || "avatar.jpg"
+  end
 end
 
 # master == true should be able to create other admins

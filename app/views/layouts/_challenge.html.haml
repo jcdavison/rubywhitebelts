@@ -1,0 +1,9 @@
+%li{"data-challenge-id" => challenge.id}
+  %h4.subheader.inline
+    #{challenge.description}
+  - if ! complete?(user.id, challenge.id)
+    %i.foundicon-idea.large.has-tip.tip-top{:title => "Attend an event to learn how to do these fun things!"}
+  - if ! complete?(user.id, challenge.id) && admin?
+    %i.pointer.foundicon-checkmark.large.challenge{"data-action" => "COMPLETE", "data-description" => challenge.description, "data-challenge-id" => challenge.id , "data-belt-id" => belt.id, "data-user-id" => user.id }
+  - if complete?(user.id, challenge.id)
+    %span.radius.success.label Complete!

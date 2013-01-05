@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216195644) do
+ActiveRecord::Schema.define(:version => 20121219202813) do
 
   create_table "auth_hashes", :force => true do |t|
     t.string   "auth_hash"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20121216195644) do
     t.string   "handle"
     t.string   "first_name"
     t.string   "last_name"
+    t.text     "pic"
   end
 
 end

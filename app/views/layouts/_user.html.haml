@@ -1,0 +1,14 @@
+.center_element{:style => "width:70%;"}
+  = image_tag("#{user.show_pic}", :class => "pic")
+  %h2.inline= user.fullname
+  %h3
+    %ul.inline-list
+      - if user.belts
+        %li Belts:
+      - else
+        %li No Belts :(
+      - user.belts.each do |belt|  
+        %li #{belt.title} Belt #{belt_progress(user.id, belt.id)}%
+      - if user.belts && admin?
+        %li 
+          = link_to "complete challenges", user_path(user)

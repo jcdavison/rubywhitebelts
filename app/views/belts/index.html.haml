@@ -3,12 +3,12 @@
 - @belts.each do |belt|
   %div.center
     - if logged_out?
-      %h2.center.middle.inline.inline
+      %h2.center.middle.inline
         The #{belt.title} White Belt
       %span.button.small.radius.buttonForModal.pointer{id: "#{belt.title.downcase}"}
         more info
     - if logged_in?
-      %h2.center.middle.inline.inline
+      %h2.center.middle.inline
         The #{belt.title} White Belt
     - if logged_in? && ! current_user.belts.find_by_title("#{belt.title}").present?
       = link_to "Join #{belt.title} White Belt", belts_path(:join_belt => {:title => "#{belt.title}", :belt_id => "#{belt.id}"}), :method => :post, class: "button small success radius"

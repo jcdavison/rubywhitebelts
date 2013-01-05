@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   before_filter :user_access?, :only => :destroy
 
   def create
-    p auth_hash
+    p auth_hash[:info][:image]
     reset_session
     if @user = User.find_by_uid(auth_hash[:uid]) || @user = User.find_by_email(auth_hash[:info][:email])
       @user.update_info(auth_hash)
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       # p "#{oauth_hash[:info][:firstName]} #{oauth_hash[:info][:lastName]}"
       
       @user.set_attributes(auth_hash)
-      p @user
+      # p oauth_hash[:info][:pictureUrl]
         if @user.save
         session[:current_user_id] = @user.id  
         flash[:success] = "Welcome to Ruby White Belts"
