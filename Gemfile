@@ -12,6 +12,7 @@ gem "omniauth-twitter", "~> 0.0.13"
 gem 'omniauth-linkedin'
 gem 'google-analytics-rails'
 gem "linkedin", "~> 0.3.7"
+gem 'sendgrid-rails', '~> 2.0'
 
 
 group :test, :development do
