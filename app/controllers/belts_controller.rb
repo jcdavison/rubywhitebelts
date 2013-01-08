@@ -6,7 +6,7 @@ class BeltsController < ApplicationController
   def index
     # respond_to do |format|
     @belts = Belt.all
-    # UserMailer.notify_john.deliver
+    UserMailer.notify_john.deliver
       # render :action => "index", :locals => {:belts => Belt.all}
     # end
     
