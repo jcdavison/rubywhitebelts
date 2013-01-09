@@ -4,10 +4,7 @@ class BeltsController < ApplicationController
   before_filter :admin_access?, :only => [:new, :create, :edit, :update, :destroy]
 
   def index
-    
-    Rails.env == "production" ? UserMailer.notify_john.deliver : nil
     @belts = Belt.all
-    
   end
 
   def show
