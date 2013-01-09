@@ -1,6 +1,4 @@
-%div{style: "width: 90%; margin: 0 auto;"}
-  .nice.secondary.progress
-    %span.meter{:style => "width:100%;"}
+%div{style: "width: 100%; margin: 0 auto;"}
   %div#progress
     = render :partial => "progress", :locals => { :belt => @belt, :user => current_user} 
   %div{style: "width: 70%; margin: 0 auto;"}  
