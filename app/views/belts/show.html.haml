@@ -4,7 +4,5 @@
   %div{style: "width: 70%; margin: 0 auto;"}  
     %ol#challenges
       = render :partial => "layouts/challenge", :collection => @belt.challenges, :locals => { :belt => @belt, :user => current_user}
-  .nice.secondary.progress
-    %span.meter{:style => "width:100%;"}
   .center
     = link_to "View Current Events", events_path, :class => "button success small center radius"

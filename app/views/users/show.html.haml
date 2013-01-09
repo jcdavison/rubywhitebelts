@@ -1,5 +1,3 @@
-.nice.secondary.progress
-  %span.meter{:style => "width:100%;"}
 .center_element{:style => "width:70%;"}
   = image_tag("#{@user.show_pic}", :class => "pic")
   %h2.inline
@@ -11,5 +9,3 @@
         = render :partial => "layouts/challenge", :collection => belt.challenges, :locals => { :belt => belt, :user => @user}
         / - belt.challenges.each do |challenge|
         /   = challenge.description
-.nice.secondary.progress
-  %span.meter{:style => "width:100%;"}
