@@ -5,7 +5,7 @@ class BeltsController < ApplicationController
 
   def index
     
-    Rails.env == "Production" ? UserMailer.notify_john.deliver : nil
+    Rails.env == "production" ? UserMailer.notify_john.deliver : nil
     @belts = Belt.all
     
   end

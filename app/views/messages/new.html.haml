@@ -1,0 +1,4 @@
+= form_for @message do |f|
+  = f.text_field :title, :placeholder => "message title"
+  = f.text_area :body, :placeholder => "body of the message"
+  = f.submit
