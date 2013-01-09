@@ -1,7 +1,9 @@
-= form_for @user do |f|
-  %fieldset
-    %h3
-      = @user.email
-    = f.text_field :first_name, :placeholder => @user.first_name
-    = f.submit
-content here  
+.center_element{:style => "width:70%;"}
+  = image_tag("#{@user.show_pic}", :class => "pic")
+  %h2.inline
+    = @user.fullname
+    - @user.belts.each do |belt|
+      %h3 
+        #{belt.title} White Belt Progress: #{belt_progress(@user.id, belt.id)}%
+      %ol#challenges
+        = render :partial => "layouts/challenge", :collection => belt.challenges, :locals => { :belt => belt, :user => @user}

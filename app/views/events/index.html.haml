@@ -2,6 +2,6 @@
   = render :partial => "noevents"
 - if @events
   = render :partial => "event", :collection => @events    
-.nice.secondary.progress
-  %span.meter{:style => "width:100%;"}
-
+- if logged_out? 
+  %h5.center
+    = link_to "Please Log in via LinkedIn to RSVP for Events ", "/auth/linkedin"

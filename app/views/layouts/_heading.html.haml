@@ -53,14 +53,14 @@
                     = link_to "Belt Status = #{current_user.white_belt.to_s.capitalize}", "javascript: void(0)"
             %li.divider
             %li.has-dropdown
-              =  link_to current_user.fullname, edit_user_path(current_user.id) 
+              = link_to current_user.fullname, "javascript:void"
               %ul.dropdown
-                %li
-                  = link_to "All Users", users_path 
-                %li
-                  = link_to "Edit Profile", "#"
-                %li
-                  = link_to "Sign Out", sign_out_path
+                - if current_user
+                  %li
+                    %label 
+                      Current User
+                  %li
+                    = link_to "Profile", edit_user_path(current_user)
                 - if admin?
                   %li
                     %label 
@@ -73,3 +73,7 @@
                       Master Tools
                   %li
                     = link_to "Message Users", new_message_path
+                %li
+                  = link_to "All Users", users_path 
+                %li
+                  = link_to "Sign Out", sign_out_path

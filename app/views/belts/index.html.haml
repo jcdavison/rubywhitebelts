@@ -21,8 +21,6 @@
     - if admin?      
       = link_to "edit", edit_belt_path(belt), class: "button tiny alert round"
       = link_to "delete", belt_path(belt), :method => :delete, class: "button tiny alert round"
-  .nice.secondary.progress
-    %span.meter{:style => "width:100%;"}
 %div.center
   %a.button.medium.buttonForModal.success.radius#about
     About @rubywhitebelts
