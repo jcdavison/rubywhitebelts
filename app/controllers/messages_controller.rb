@@ -7,8 +7,8 @@ class MessagesController < ApplicationController
   end
 
   def create
-    p params
-    Rails.env == "production" ? UserMailer.notify_john(params[:message].deliver : nil
+    @message = Message.create(params[:message])
+    Rails.env == "production" ? UserMailer.notify_john(@message).deliver : nil
     redirect_to new_message_path
   end
 end
