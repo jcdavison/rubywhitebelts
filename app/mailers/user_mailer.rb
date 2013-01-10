@@ -6,9 +6,10 @@ class UserMailer < ActionMailer::Base
     mail :to => "johncdavison@gmail.com", :subject => "hey dude this is working"
   end
 
-  def message_user(user, subject)
+  def message_user(user, message)
     @user = user
-    mail :to => @user.email, subject: => subject
+    @message = message
+    mail :to => @user.email, :subject => @message.title
   end
 
 end
