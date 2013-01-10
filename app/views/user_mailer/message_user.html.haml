@@ -3,6 +3,7 @@
   %head
     %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}/
   %body
-    %h4= @message.title
+    %h3 Hi #{@user.first_name} !!
     %p= @message.body
+    %p  Cheers, John
     = render :partial => "_disclaimer"

@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
 
   def message_user(user, subject)
     @user = user
-    mail :to => user.email, subject: => subject
+    mail :to => @user.email, subject: => subject
   end
 
 end
