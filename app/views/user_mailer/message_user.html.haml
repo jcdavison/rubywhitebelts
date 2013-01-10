@@ -6,6 +6,5 @@
     %h3 Hi #{@user.first_name} !!
     %div
       = @message.body.html_safe
-    %p  Cheers, John, 
-    %p = mail_to "john@rubywhitebelts.com"
+    %p  Cheers, John, john@rubywhitebelts.com 
     = render :partial => "disclaimer"
