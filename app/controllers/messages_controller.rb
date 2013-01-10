@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create(params[:message])
-    if Rails.env == "development"
+    if Rails.env == "production"
       User.find_all_by_email("johncdavison@gmail.com").each do |user|
         UserMailer.message_user( user, @message).deliver
       end
