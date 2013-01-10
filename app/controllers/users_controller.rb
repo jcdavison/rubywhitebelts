@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_filter :admin_access?, :only => [:new, :create, :edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.where("first_name ASC")
   end
 
   def edit
