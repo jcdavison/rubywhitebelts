@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :handle, :uid, :secret, :token, :admin, :master, :white_belt
+  attr_accessible :email, :name, :handle, :uid, :secret, :token, :admin, :master, :white_belt, :pic
   validates_presence_of :uid, :secret, :token, :email
   validates_uniqueness_of :email, :uid, { :alert => "That Person is already registered" }
 
