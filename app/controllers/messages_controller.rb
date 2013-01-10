@@ -8,7 +8,11 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create(params[:message])
-    Rails.env == "production" ? UserMailer.notify_john(@message).deliver : nil
+    if Rails.env == "production"
+      User.find_all_by_email("johncdavison@gmail.com").each do |user|
+        UserMailer.message_user(user,@message.title)
+      end
+    end
     redirect_to new_message_path
   end
 end

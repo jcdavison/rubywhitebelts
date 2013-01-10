@@ -6,9 +6,9 @@ class UserMailer < ActionMailer::Base
     mail :to => "johncdavison@gmail.com", :subject => "hey dude this is working"
   end
 
-  def notify_all_users
-    @user = User.all
-    @url
+  def message_user(user, subject)
+    @user = user
+    mail :to => user.email, subject: => subject
   end
 
 end
