@@ -1,0 +1,3 @@
+- current_user.belts.each do |belt|
+  %li 
+    = link_to "#{belt.title.capitalize} Belt", belt_path(belt)

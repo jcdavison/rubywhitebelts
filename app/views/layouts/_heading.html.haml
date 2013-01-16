@@ -1,79 +1,21 @@
 .row
-  .one.column.centered
-    .fixed.contain-to-grid
-      %nav.top-bar
-        %ul
-          - if logged_out?
-            %li.divider
-            %li.name
-              %h1
-                = link_to "Belts", belts_path
-            %li.divider
-            %li.name
-              %h1
-                = link_to "Events", events_path
-            %li.divider
-            %li.name
-              %h1
-                = link_to "Sign Up", "/auth/linkedin"
-            %li.divider
-          - if logged_in? 
-            %li.divider
-            %li.name
-              %h1
-                = link_to "All Belts", belts_path
-            %li.divider
-            %li.name
-              %h1
-                = link_to "Events", events_path
-            %li.divider
-            - current_user.belts.all.each do |belt|
-              %li.name
-                %h1
-                  = link_to "#{belt.title} Belt", belt_path(belt)
-              %li.divider
-        - if logged_out?
-          %ul.right
-            %li.divider
-            %li.name
-              %h1
-                = link_to "Log In", "/auth/linkedin"
-            %li.divider
-        - if logged_in?
-          %ul.right
-            - if ! current_user.white_belt
-              %li.divider
-                %li
-                  .has-tip.tip-bottom{:title => "Attend an intro to RubyWhiteBelts Event to turn this boolean to true, and the journey will begin..." }
-                    = link_to "Belt Status = #{current_user.white_belt.to_s.capitalize}", "javascript: void(0)"
-            - if current_user.white_belt
-              %li.divider
-                %li
-                  .has-tip.tip-bottom{:title => "Your Journey is Underway...", }
-                    = link_to "Belt Status = #{current_user.white_belt.to_s.capitalize}", "javascript: void(0)"
-            %li.divider
-            %li.has-dropdown
-              = link_to current_user.fullname, "javascript:void"
-              %ul.dropdown
-                - if current_user
-                  %li
-                    %label 
-                      Current User
-                  %li
-                    = link_to "Profile", user_path(current_user)
-                - if admin?
-                  %li
-                    %label 
-                      Admin Tools
-                  %li
-                    = link_to "Edit Belts", belts_path
-                - if master?
-                  %li
-                    %label 
-                      Master Tools
-                  %li
-                    = link_to "Message Users", new_message_path
-                %li
-                  = link_to "All Users", users_path 
-                %li
-                  = link_to "Sign Out", sign_out_path
+  .fixed.contain-to-grid
+    %nav.top-bar
+      %ul
+        %li.name
+          %h1 #{link_to "RubyWhiteBelts", root_path}
+        %li.toggle-topbar #{link_to "", "#"}
+      %section
+        %ul.right
+          %li.divider.show-for-medium-and-up
+          %li.has-dropdown
+            #{link_to "Menu & Options", "javascript:void(0)"}
+            %ul.dropdown
+              %li #{link_to "Events", events_path}
+              - if logged_in? && current_user.has_belts?
+                = render :partial => "layouts/beltsnav"
+              - if logged_in?
+                %li #{link_to "All Users", users_path}
+                %li #{link_to "Sign Out", sign_out_path}
+              - if logged_out?
+                %li #{link_to "Sign Up or Sign In", "/auth/linkedin"}

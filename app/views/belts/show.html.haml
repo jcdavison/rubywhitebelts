@@ -5,4 +5,4 @@
     %ol#challenges
       = render :partial => "layouts/challenge", :collection => @belt.challenges, :locals => { :belt => @belt, :user => current_user}
   .center
-    = link_to "View Current Events", events_path, :class => "button success small center radius"
+    = link_to "View Current Events", events_path, :class => "button success small center radius bottom_margined"

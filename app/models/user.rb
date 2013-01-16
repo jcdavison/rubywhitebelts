@@ -35,6 +35,11 @@ class User < ActiveRecord::Base
   def show_pic
     self.pic || "avatar.jpg"
   end
+
+  def has_belts?
+    self.belts ? true : false
+  end
+
 end
 
 # master == true should be able to create other admins
