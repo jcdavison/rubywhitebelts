@@ -14,3 +14,5 @@
 - if has_rsvps?(event.id)
   %h3.center RSVP LIST 
   = render :partial => "layouts/user", :collection => event.all_users_who_rsvp
+- else
+  %h5.center Be the first person to RSVP ! 
