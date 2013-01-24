@@ -11,3 +11,6 @@
       = link_to "Cancel RSVP", rsvp_path(current_user.rsvps.find_by_event_id(event.id)), :method => :delete , class: "button tiny alert radius rsvp middle"
   - if logged_in? && admin?
     = link_to "delete", event_path(event), :method => :delete, class: "button tiny alert round"
+- if has_rsvps?(event.id)
+  %h3.center RSVP LIST 
+  = render :partial => "layouts/user", :collection => event.all_users_who_rsvp
