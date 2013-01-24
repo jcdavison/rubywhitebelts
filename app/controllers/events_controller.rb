@@ -6,10 +6,17 @@ class EventsController < ApplicationController
   end
 
   def create
-
+    @event = Event.new(params[:event])
+    if @event.save
+      flash[:success] = "new event created"
+      redirect_to events_path
+    else
+      redirect_to :back
+    end
   end
 
   def new
+    @event = Event.new
   end
 
   def edit
@@ -21,7 +28,9 @@ class EventsController < ApplicationController
   end
 
   def destroy
-
+    Event.find(params[:id]).destroy
+    flash[:succes] = "event destroyed"
+    redirect_to events_path
   end
 
 end

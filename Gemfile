@@ -26,6 +26,7 @@ group :test, :development do
   gem 'spork-rails'
   gem 'autotest'
   gem "autotest-fsevent"
+  gem 'capybara-screenshot', '~> 0.3.4'
 end
 
 group :assets do

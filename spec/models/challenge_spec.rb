@@ -2,16 +2,26 @@ require 'spec_helper'
 
 describe Challenge do
 
-    it "must have a belt_id and description " do
-      Challenge.new.save.should == false
-      @challenge = FactoryGirl.create(:challenge)
-      @challenge.valid?.should == true
-    end
+  before :each do 
+    @belt = FactoryGirl.create(:belt)
+    @challenge = FactoryGirl.create(:challenge, belt_id: @belt.id)
+    @user = FactoryGirl.create(:user)
+  end
 
-    it "#complete?" do
-      @challenge = Challenge.create(description: "use .select", belt_id: 1)
-      @user = FactoryGirl.create(:user)
-      @challenge.complete?(@user.id).should == false
-    end
+  it "must have a belt_id and description " do
+    @challenge.valid?.should == true
+  end
+
+  it "#complete?" do
+    @challenge.complete?(@user.id).should == false
+  end
+
+  it "#complete? when associated completion exists" do
+    @completion = FactoryGirl.create(:completion, user_id: @user.id, belt_id: @belt.id, challenge_id: @challenge.id)
+    p User.find(@user.id).completions.where("challenge_id = ?",@challenge.id).exists?
+    @challenge.complete?(@user.id).should == true
+  end
+
+
 
 end

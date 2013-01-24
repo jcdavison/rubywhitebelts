@@ -9,6 +9,8 @@
         %ul.right
           %li #{link_to "Events", events_path}
           %li.divider.show-for-medium-and-up
+          %li #{link_to "Belts", belts_path}
+          %li.divider.show-for-medium-and-up
             - if logged_in? && current_user.has_belts?
               = render :partial => "layouts/beltsnav"
           %li.has-dropdown
@@ -17,5 +19,8 @@
               - if logged_in?
                 %li #{link_to "All Users", users_path}
                 %li #{link_to "Sign Out", sign_out_path}
+              - if logged_in? && master?
+                %li #{link_to "Create Belts", new_belt_path}
+                %li #{link_to "Create Event", new_event_path}
               - if logged_out?
                 %li #{link_to "Sign Up or Sign In", "/auth/linkedin"} 

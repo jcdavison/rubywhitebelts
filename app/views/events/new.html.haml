@@ -1,0 +1,17 @@
+= form_for @event do |e|
+  %h4.subheader
+    Event Title
+  =  e.text_field :title
+  %h4.subheader
+    Event date YYYY-MM-DD Format
+  =  e.text_field :date
+  %h4.subheader
+    Event location
+  =  e.text_field :location
+  %h4.subheader
+    Event capacity
+  =  e.text_field :capacity
+  %h4.subheader
+    Belt Description
+  =  e.text_area :description
+  = e.submit 

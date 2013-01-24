@@ -5,7 +5,11 @@ class Challenge < ActiveRecord::Base
   validates_presence_of :description, :belt_id
 
   def complete?(user_id)
-    p self.id
-    User.find(user_id).completions.where("challenge_id = ?",self.id) == true ? true : false
+    if
+      User.find(user_id).completions.where("challenge_id = ?",self.id).exists?
+      true
+    else
+      false
+    end
   end
 end

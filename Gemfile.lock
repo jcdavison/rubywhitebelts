@@ -44,6 +44,8 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    capybara-screenshot (0.3.4)
+      capybara (>= 1.0, < 3)
     capybara-webkit (0.12.1)
       capybara (>= 1.0.0, < 1.2)
       json
@@ -237,6 +239,7 @@ DEPENDENCIES
   autotest
   autotest-fsevent
   capybara (~> 1.1.2)
+  capybara-screenshot (~> 0.3.4)
   capybara-webkit
   coffee-rails (~> 3.2.1)
   compass-rails

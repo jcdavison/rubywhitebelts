@@ -9,3 +9,5 @@
       = link_to "RSVP", rsvps_path(:new_rsvp_event_id => event.id), :method => :post , class: "button tiny success radius rsvp middle"
     - if  current_user.rsvps.find_by_event_id(event.id)
       = link_to "Cancel RSVP", rsvp_path(current_user.rsvps.find_by_event_id(event.id)), :method => :delete , class: "button tiny alert radius rsvp middle"
+  - if logged_in? && admin?
+    = link_to "delete", event_path(event), :method => :delete, class: "button tiny alert round"
