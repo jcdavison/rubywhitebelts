@@ -44,7 +44,7 @@ class BeltsController < ApplicationController
 
   def update
     @belt = Belt.find(params[:id])
-    @belt.update_attribute(:title, params[:belt][:title])
+    @belt.update_attributes(params[:belt])
     redirect_to edit_belt_path(@belt)
   end
 
