@@ -22,5 +22,6 @@
               - if logged_in? && master?
                 %li #{link_to "Create Belts", new_belt_path}
                 %li #{link_to "Create Event", new_event_path}
+                %li #{link_to "Message Users", new_message_path}
               - if logged_out?
                 %li #{link_to "Sign Up or Sign In", "/auth/linkedin"} 

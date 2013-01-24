@@ -16,3 +16,7 @@
   = render :partial => "layouts/user", :collection => event.all_users_who_rsvp
 - else
   %h5.center Be the first person to RSVP ! 
+- if master?
+  .center
+    = link_to "message this group", new_message_path, class: "button tiny success radius rsvp middle center"
+  
