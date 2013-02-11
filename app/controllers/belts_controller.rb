@@ -39,12 +39,13 @@ class BeltsController < ApplicationController
 
   def edit
     @belt = Belt.find(params[:id])
-    challenge = @belt.challenges.build  
+    challenge = @belt.challenges.build
   end
 
   def update
     @belt = Belt.find(params[:id])
     @belt.update_attributes(params[:belt])
+    p @belt.errors
     redirect_to edit_belt_path(@belt)
   end
 

@@ -3,15 +3,9 @@
     The #{@belt.title} Belt
   %h5.center
     #{@belt.description} 
-  %h5.center
-    Challenges
+
 %div{style: "width: 85%; margin: 0 auto;"}    
-  %ol
-    - @belt.challenges.each do |challenge|
-      %li
-        %h4.subheader 
-          - if challenge.description != nil
-            = challenge.description.html_safe
+
 .nice.secondary.progress
   %span.meter{:style => "width:100%;"}
 %div
@@ -22,8 +16,5 @@
     %h4.subheader
       Belt Description
     =  belt.text_field :description
-    %h4.subheader
-      Challenges
-    =  belt.fields_for :challenges do |builder|
-      = builder.text_field :description
+  %div.center
     =  belt.submit

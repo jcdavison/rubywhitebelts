@@ -1,1 +1,2 @@
-All Hail Ruby with his Rail
+## RubyWhiteBelts.com
+###A social approach to full stack engineering
