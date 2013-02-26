@@ -8,7 +8,7 @@ $ ->
       url: "/completions"
       data: {
         challenge_id: $(this).attr("data-challenge-id")
-        belt_id: $(this).attr("data-belt-id") 
+        belt_id: $(this).attr("data-belt-id")
         user_id: $(this).attr("data-user-id")
       }
       success: (json_data) ->

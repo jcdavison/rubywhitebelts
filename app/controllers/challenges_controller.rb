@@ -15,7 +15,6 @@ class ChallengesController < ApplicationController
   end
 
   def edit
-    p "index controller triggered"
     respond_with do |format|
       format.json{
         render :json => {
